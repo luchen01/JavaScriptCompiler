@@ -1,0 +1,17 @@
+{
+  "name": "minilua",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/jison grammar.json && node compiler.js test.lua"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.14.1",
+    "fs": "0.0.1-security",
+    "jison": "^0.4.18"
+  }
+}
