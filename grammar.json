@@ -2,7 +2,7 @@
     "lex": {
         "rules": [
            ["\\s+",                    "/* skip whitespace */"],
-
+           ["function",                "return 'FUNCTION';"],
            ["local",                   "return 'LOCAL';"],
            ["if",                      "return 'IF';"],
            ["while",                   "return 'WHILE';"],
@@ -24,8 +24,6 @@
            ["\\^",                     "return '^';"],
            ["\\(",                     "return '(';"],
            ["\\)",                     "return ')';"],
-           ["PI\\b",                   "return 'PI';"],
-           ["E\\b",                    "return 'E';"],
            ["$",                       "return 'EOF';"]
         ]
     },
@@ -95,6 +93,11 @@
         "assignment": [
           ["IDENTIFIER = expression",
             "$$ = {type: 'assignment', identifier: $1, value: $3};"]
+        ],
+
+        "function": [
+          ["FUNCION IDENTIFIER expression expression",
+            "$$ = {type: 'function', arguments: $2, value: $3};"]
         ]
     }
 }
